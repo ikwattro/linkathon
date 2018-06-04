@@ -39,7 +39,7 @@ def handleSubjectCount(alexaRequest):
     q = "MATCH (n:studySubject) RETURN count(n) AS c"
     result = list(session.run(q))
 
-    return alexaRequest.buildResponse('There are ' + str(result[0]['c']) + ' subjects', True)
+    return alexaRequest.buildResponse('There are ' + str(result[0]['c']) + ' subjects', False)
 
 def handleSubjectQuery(alexaRequest):
     q = "MATCH (n:studySubject) WHERE n.%s %s toInteger(%s) RETURN count(n) AS c"
@@ -58,7 +58,7 @@ def handleSubjectQuery(alexaRequest):
 
     response = 'There are %d subjects having %s %s %s' % (c, slots['column']['value'], operator, slots['val']['value'])
     
-    return alexaRequest.buildResponse(response, True) 
+    return alexaRequest.buildResponse(response, False) 
 
 
 
