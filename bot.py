@@ -16,6 +16,10 @@ password = os.environ['NEO4J_PASS'] if 'NEO4J_PASS' in os.environ else ""
 driver = GraphDatabase.driver(os.environ['NEO4J_URL'], auth=("neo4j", password))
 session = driver.session()
 
+@app.route("/")
+def home():
+    return jsonify({message:"hello"})
+
 @app.route("/alexa", methods=['GET','POST'])
 def alexa():
     data = request.get_json(force=True)
