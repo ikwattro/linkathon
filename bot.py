@@ -12,7 +12,8 @@ from neo4j.v1 import GraphDatabase
 app = flask.Flask(__name__)
 CORS(app,resources={r"/*": {"origins": "*"}})
 
-driver = GraphDatabase.driver(os.environ['NEO4J_URL'])
+password = os.environ['NEO4J_PASS'] if 'NEO4J_PASS' in os.environ else ""
+driver = GraphDatabase.driver(os.environ['NEO4J_URL'], auth=("neo4j", password))
 session = driver.session()
 
 @app.route("/alexa", methods=['GET','POST'])
