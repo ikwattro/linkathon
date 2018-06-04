@@ -18,7 +18,7 @@ session = driver.session()
 
 @app.route("/")
 def home():
-    return jsonify({message:"hello"})
+    return jsonify({"message":"hello"})
 
 @app.route("/alexa", methods=['GET','POST'])
 def alexa():
