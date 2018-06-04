@@ -25,7 +25,7 @@ class AlexaRequest():
         should_end_session = shouldEndSession
         card_title = "Brain Buddy"
         reprompt_text = ""
-        speech_output = "Yo Bro! I am processing it." if message is None else message
+        speech_output = "Hmm, Linkathon had an issue." if message is None else message
 
         return self.build_response(session_attributes, self.build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session, directives))
