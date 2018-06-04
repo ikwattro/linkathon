@@ -50,8 +50,10 @@ def handleSubjectQuery(alexaRequest):
     print(query)
     result = list(session.run(query))
     c = result[0]['c']
+
+    response = 'There are %d subjects having %s %s %s' % (c, slots['column']['value'], operator, slots['val']['value'])
     
-    return alexaRequest.buildResponse('The operator is ' + operator + ' and there are ' + str(c) + ' matching subjects', True) 
+    return alexaRequest.buildResponse(response, True) 
 
 
 
