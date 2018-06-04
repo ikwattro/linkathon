@@ -1,0 +1,4 @@
+Flask==0.12.2
+neo4j_driver==1.5.3
+requests==2.18.4
+Flask_Cors==3.0.3
